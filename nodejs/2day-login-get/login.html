@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login--express--get</title>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+	<form action="login" method="get" >
+		<input type="text" name="username" id="username">
+		<input type="password" name="password" id="pwd">
+		<input type="submit" value="Login" id="btnLogin">
+	</form>
+
+	<script>
+		$(function(){
+			$('#btnLogin').click(function(){
+				//访问login（前端操作）
+				//$.get() 类似 $.ajax()
+				//发送参数：username:$('#username').val(),pwd:$('#pwd').val()
+				$.get('login',{username:$('#username').val(),pwd:$('#pwd').val()},function(response){
+
+					console.log(response);
+					//如果response.status==true（由后台返回），则执行。。。否则。。。
+					if(response.status){
+						window.alert(response.message);
+					}else{
+						window.alert(response.message);
+						
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>

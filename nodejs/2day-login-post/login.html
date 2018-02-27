@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login--express--post</title>
+	<script scr="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<form action="login" method="post">
+		<input type="text" name="username" id="username">
+		<input type="password" name="password" id="pwd">
+		<input type="button" id="btnLogin">
+	</form>
+
+	<script>
+		$(function(){
+			$('#btnLogin').click(function(){
+				//传递参数、回调函数
+				$.post('login',{username:$('#username').val(),password:$('#pwd').val()},function(res){
+
+					console.log(res);
+				})
+			})
+		})	
+	</script>
+</body>
+</html>
